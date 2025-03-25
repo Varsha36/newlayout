@@ -116,13 +116,13 @@
         
         function logout() {
             sessionStorage.removeItem("userRole");
-            window.location.href = "login.html";
+            window.location.href = "index.html";
         }
         
         window.onload = function() {
             if (sessionStorage.getItem("userRole") !== "admin") {
                 alert("Unauthorized! Redirecting...");
-                window.location.href = "login.html";
+                window.location.href = "index.html";
             }
             loadData();
         };

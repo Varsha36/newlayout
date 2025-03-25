@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="./resources/ol.css">
+        <link rel="stylesheet" href="resources/fontawesome-all.min.css">
+        <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
+        <link rel="stylesheet" href="./resources/qgis2web.css">
+        <style>
+            html, body {
+                background-color: #ffffff;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+            }
+            #map {
+                width: 100%;
+                height: 60%;
+                position: relative;
+            }
+            #fullscreen-btn {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                background: white;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                box-shadow: 0 0 5px rgba(0,0,0,0.3);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                z-index: 1000;
+            }
+            #fullscreen-btn i {
+                font-size: 20px;
+            }
+            #dashboard {
+                width: 100%;
+                height: 40%;
+                padding: 20px;
+                background-color: #f4f4f4;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+            .dashboard-item {
+                width: 45%;
+                padding: 15px;
+                background: white;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                border-radius: 20px;
+                font-size:14px;
+            }
+            .color-box{
+                width: 15px;
+                height: 15px;
+                display:inline-block;
+            }
+            .dashboard-item input{
+                border: 1px solid #ccc;
+                padding: 5px;
+                border-radius: 20px; /* Matching the outer layer shape */
+                width: 50px;
+                text-align: center;
+            }
+            </style>
+        <title>Map and Dashboard</title>
+    </head>
+    <body>
+        <button id="fullscreen-btn"><i class="fas fa-expand"></i></button>
+        <div id="map">
+            <div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content"></div>
+            </div>
+        </div>
+        <div id="dashboard">  
+            <div class="dashboard-item"><span class="color-box" style="background: green;"></span> Available Plots: <input type="number" id="availablePlots" value="0"></div>
+            <div class="dashboard-item"><span class="color-box" style="background: red;"></span> Mortgaged Plots: <input type="number" id="mortgagedPlots" value="0"></div>
+            <div class="dashboard-item"><span class="color-box" style="background: beige;"></span> Total Plots: <input type="number" id="totalPlots" value="0"></div>
+            <div class="dashboard-item"><span class="color-box" style="background: orange;"></span> Registered Plots: <input type="number" id="registeredPlots" value="0"></div>
+            <div class="dashboard-item"><span class="color-box" style="background: grey;"></span> Booked Plots: <input type="number" id="bookedPlots" value="0"></div>
+        </div>
+        <script></script>
+        <script src="resources/qgis2web_expressions.js"></script>
+        <script src="./resources/functions.js"></script>
+        <script src="./resources/ol.js"></script>
+        <script src="./resources/ol-layerswitcher.js"></script>
+        <script src="layers/modgaged_1.js"></script><script src="layers/newlayer_2.js"></script><script src="layers/registered_3.js"></script><script src="layers/notregistered_4.js"></script><script src="layers/booked_5.js"></script>
+        <script src="styles/modgaged_1_style.js"></script><script src="styles/newlayer_2_style.js"></script><script src="styles/registered_3_style.js"></script><script src="styles/notregistered_4_style.js"></script><script src="styles/booked_5_style.js"></script>
+        <script src="./layers/layers.js" type="text/javascript"></script> 
+        <script src="./resources/Autolinker.min.js"></script>
+        <script src="./resources/qgis2web.js"></script>
+    </body>
+</html>
